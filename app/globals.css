@@ -1,15 +1,8 @@
-/* Linha 1: A diretiva mestre do Tailwind v4. 
-   Ela substitui as 3 linhas antigas e injeta todo o motor do framework instantaneamente. */
 @import "tailwindcss";
 
-/* Linha 5: O novo bloco de configuração nativo.
-   Em vez de usar um arquivo JavaScript/TypeScript na raiz, nós configuramos nossos tokens direto no CSS! */
 @theme {
-  /* Criamos a família de cores 'brand' usando variáveis CSS puras de alta performance. */
   --color-brand-primary: #820ad1; /* O roxo oficial do Nubank */
   --color-brand-hover: #4f46e5;   /* O tom de transição para o toque */
-
-  /* Criamos a atmosfera noturna solicitada pelo cliente. */
   --color-dark-base: #0d0d12;    /* O fundo escuro profundo */
   --color-dark-card: rgba(255, 255, 255, 0.04); /* A base de vidro translúcida */
 }

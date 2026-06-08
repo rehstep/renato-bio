@@ -1,8 +1,6 @@
 import Image from "next/image";
 
 export default function Page() {
-  // Linha 5: Central de links definitiva, carregando as suas conexões reais.
-  // Cada URL foi estruturada seguindo os padrões oficiais de segurança e alta disponibilidade das plataformas.
   const links = [
     {
       title: "Projetos & Repositórios",
@@ -63,12 +61,10 @@ export default function Page() {
               className="block p-4 bg-dark-card backdrop-blur-md border border-white/10 rounded-2xl transition-all duration-300 hover:border-brand-primary/50 hover:bg-white/10 group"
             >
               <div className="flex flex-col text-left">
-                {/* O Título Principal do Link ganha o tom roxo ao sofrer a interação (hover) */}
                 <span className="font-bold text-white text-lg group-hover:text-brand-primary transition-colors duration-300">
                   {link.title}
                 </span>
                 
-                {/* Descrição contextual detalhada */}
                 <span className="text-sm text-slate-400 mt-0.5 leading-snug">
                   {link.subtitle}
                 </span>
