@@ -77,8 +77,12 @@ export default function Page() {
           ))}
 
         </div>
-
       </div>
+
+      <footer className="w-full text-center text-xs text-slate-500 py-6">
+        © {new Date().getFullYear()} Renato Queiroga. Todos os direitos reservados.
+      </footer>
+
     </main>
   );
 }
