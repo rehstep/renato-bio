@@ -1,84 +1,50 @@
 import Image from "next/image";
+import { LinkCard } from "./components/LinkCard";
 
 export default function Page() {
   const links = [
-    {
-      title: "Projetos & Repositórios",
-      subtitle: "Explore meu ecossistema de códigos, sistemas web e automações no GitHub",
-      url: "https://github.com/rehstep?tab=repositories",
-    },
-    {
-      title: "Instagram Profissional",
-      subtitle: "Acompanhe meus bastidores, insights de marketing, teologia e tecnologia",
-      url: "https://www.instagram.com/renatoqueirog",
-    },
-    {
-      title: "Conexão Direta no WhatsApp",
-      subtitle: "Fale diretamente comigo para consultorias, parcerias e novos sistemas",
-      url: "https://wa.me/5583982033982",
-    },
+    { label: "GitHub: Projetos & Repositórios", url: "https://github.com/rehstep" },
+    { label: "Instagram: Bastidores & Insights", url: "https://instagram.com/renatoqueirog" },
+    { label: "WhatsApp: Conexão Direta", url: "https://wa.me/5583982033982" },
   ];
 
   return (
-    <main className="min-h-screen bg-dark-base text-slate-100 flex flex-col items-center">
-      <div className="w-full max-w-md relative flex flex-col items-center">
+    <main className="min-h-screen flex justify-center bg-[#0d0115]">
+      {/* Container fixo para simular o layout de um celular */}
+      <div className="w-full max-w-[400px] flex flex-col items-center">
         
-        {/* Seção Hero - Sua foto local 'renato.jpg' perfeitamente integrada */}
+        {/* Foto de Perfil com Gradiente de transição */}
         <div className="w-full h-80 relative overflow-hidden">
           <Image 
             src="/renato.jpg" 
-            alt="Foto de perfil profissional de Renato Queiroga"
-            fill
-            priority
-            className="object-cover"
+            alt="Renato Queiroga" 
+            fill 
+            className="object-cover" 
+            priority 
+            sizes="(max-width: 400px) 100vw, 400px" 
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-dark-base via-dark-base/70 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-[#0d0115] via-[#0d0115]/60 to-transparent" />
         </div>
 
-        {/* Bloco de Textos de Identidade Espiritual e Profissional */}
-        <div className="-mt-20 relative px-6 text-center flex flex-col items-center">
-          <h1 className="text-3xl font-extrabold tracking-tight text-white">
-            Renato Queiroga
-          </h1>
-          <p className="text-brand-primary text-sm font-semibold mt-1 uppercase tracking-widest">
-            Desenvolvedor Fullstack & Visionário
-          </p>
-          <p className="text-slate-400 text-base mt-4 leading-relaxed max-w-sm">
-            Casado com Raissa Mirelly, cristão e entusiasta de tecnologia, teologia e neurociência. 
-            Construindo soluções modernas para agregar valor real na vida das pessoas através da internet.
-          </p>
-        </div>
-
-        {/* Seção de Links com Efeito de Vidro Jateado (Glassmorphism) */}
-        <div className="w-full px-6 mt-8 space-y-4 pb-12">
-          
-          {links.map((link, index) => (
-            <a
-              key={index}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block p-4 bg-dark-card backdrop-blur-md border border-white/10 rounded-2xl transition-all duration-300 hover:border-brand-primary/50 hover:bg-white/10 group"
-            >
-              <div className="flex flex-col text-left">
-                <span className="font-bold text-white text-lg group-hover:text-brand-primary transition-colors duration-300">
-                  {link.title}
-                </span>
-                
-                <span className="text-sm text-slate-400 mt-0.5 leading-snug">
-                  {link.subtitle}
-                </span>
-              </div>
-            </a>
-          ))}
-
+        {/* Bio e Conteúdo */}
+        <div className="-mt-20 relative z-10 px-6 text-center w-full">
+           <h1 className="text-3xl font-bold text-white">Renato Queiroga</h1>
+           <p className="text-[#820ad1] font-semibold mt-1 uppercase text-sm tracking-widest">
+             Desenvolvedor Fullstack & Visionário
+           </p>
+           <p className="text-slate-400 mt-4 leading-relaxed">
+             Casado com Raissa, cristão e entusiasta de tecnologia e neurociência. 
+             Construindo soluções modernas para agregar valor real.
+           </p>
+           
+           {/* Lista de Links */}
+           <div className="mt-8 space-y-4 w-full">
+             {links.map((link, i) => (
+               <LinkCard key={i} label={link.label} url={link.url} />
+             ))}
+           </div>
         </div>
       </div>
-
-      <footer className="w-full text-center text-xs text-slate-500 py-6">
-        © {new Date().getFullYear()} Renato Queiroga. Todos os direitos reservados.
-      </footer>
-
     </main>
   );
 }
